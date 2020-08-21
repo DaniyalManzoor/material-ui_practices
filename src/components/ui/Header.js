@@ -174,6 +174,81 @@ const Header = () => {
             >
               <img src={logo} alt="Logo" className={classes.logo} />
             </Button>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              className={classes.tabContainer}
+              indicatorColor="primary"
+            >
+              <Tab
+                className={classes.tab}
+                component={Link}
+                to="/"
+                label="Home"
+              />
+              <Tab
+                aria-owns={anchorEl ? "simple-menu" : undefined}
+                aria-haspopup={anchorEl ? "true" : undefined}
+                className={classes.tab}
+                component={Link}
+                onMouseOver={(event) => handleClick(event)}
+                to="/services"
+                label="Servies"
+              />
+              <Tab
+                className={classes.tab}
+                component={Link}
+                to="/revolution"
+                label="The Revolution"
+              />
+              <Tab
+                className={classes.tab}
+                component={Link}
+                to="/about"
+                label="About Us"
+              />
+              <Tab
+                className={classes.tab}
+                component={Link}
+                to="/contact"
+                label="Contact Us"
+              />
+            </Tabs>
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+            >
+              Free Estimate
+            </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={open}
+              classes={{ paper: classes.menu }}
+              onClose={() => {
+                handleClose();
+                setValue(1);
+              }}
+              elevation={0}
+            >
+              {menuOptions.map((option, i) => (
+                <MenuItem
+                  key={option.name}
+                  component={Link}
+                  to={option.link}
+                  classes={{ root: classes.menuItem }}
+                  onClick={(event) => {
+                    handleMenuItem(event, i);
+                    setValue(1);
+                    handleClose();
+                  }}
+                  selected={i === selectedIndex && value === 1}
+                >
+                  {option.name}
+                </MenuItem>
+              ))}
+            </Menu>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
