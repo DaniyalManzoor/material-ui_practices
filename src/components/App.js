@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./ui/Header";
+import Footer from "./ui/footer";
 import Theme from "./ui/Theme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Routes, Route } from "react-router-dom";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/estimate" element={<Home />} />
       </Routes>
+      <Footer />
     </ThemeProvider>
   );
 }

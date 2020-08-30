@@ -110,13 +110,13 @@ const useStyle = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.orange,
   },
   draweItemSelected: {
-    "& .MuiListItemText-root":{
-      opacity:1,
-    }
+    "& .MuiListItemText-root": {
+      opacity: 1,
+    },
   },
-  appbar:{
+  appbar: {
     zIndex: theme.zIndex.modal + 1,
-  }
+  },
 }));
 
 const Header = () => {
@@ -152,7 +152,12 @@ const Header = () => {
   };
 
   const menuOptions = [
-    { name: "Services", link: "/services", activeIndex: 1, selectedIndex: 0 },
+    {
+      name: "Services",
+      link: "/services",
+      activeIndex: 1,
+      selectedIndex: 0,
+    },
     {
       name: "Custom Software Developement",
       link: "/customsoftwares",
@@ -173,7 +178,11 @@ const Header = () => {
     },
   ];
   const routes = [
-    { name: "Home", link: "/", activeIndex: 0 },
+    {
+      name: "Home",
+      link: "/",
+      activeIndex: 0,
+    },
     {
       name: "Services",
       link: "/services",
@@ -182,9 +191,21 @@ const Header = () => {
       ariaHandle: anchorEl ? "true" : undefined,
       mouseOver: (event) => handleClick(event),
     },
-    { name: "The Revolution", link: "/revolution", activeIndex: 2 },
-    { name: "About Us", link: "/about", activeIndex: 3 },
-    { name: "Contact Us", link: "/contact", activeIndex: 4 },
+    {
+      name: "The Revolution",
+      link: "/revolution",
+      activeIndex: 2,
+    },
+    {
+      name: "About Us",
+      link: "/about",
+      activeIndex: 3,
+    },
+    {
+      name: "Contact Us",
+      link: "/contact",
+      activeIndex: 4,
+    },
   ];
   const tabs = (
     <>
@@ -192,7 +213,7 @@ const Header = () => {
         value={value}
         onChange={handleChange}
         className={classes.tabContainer}
-        indicatorColor="primary"
+        indicatorColor='primary'
       >
         {routes.map((route, index) => (
           <Tab
@@ -207,28 +228,34 @@ const Header = () => {
           />
         ))}
       </Tabs>
-      <Button variant="contained" color="secondary" className={classes.button}>
+      <Button variant='contained' color='secondary' className={classes.button}>
         Free Estimate
       </Button>
       <Menu
-        id="simple-menu"
+        id='simple-menu'
         anchorEl={anchorEl}
         open={openMenu}
-        classes={{ paper: classes.menu }}
+        classes={{
+          paper: classes.menu,
+        }}
         onClose={() => {
           handleClose();
           setValue(1);
         }}
         elevation={0}
         keepMounted
-        style={{zIndex:1302}}
-      >   
+        style={{
+          zIndex: 1302,
+        }}
+      >
         {menuOptions.map((option, i) => (
           <MenuItem
             key={`${option}${i}`}
             component={Link}
             to={option.link}
-            classes={{ root: classes.menuItem }}
+            classes={{
+              root: classes.menuItem,
+            }}
             onClick={(event) => {
               handleMenuItem(event, i);
               setValue(1);
@@ -268,9 +295,11 @@ const Header = () => {
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
         onOpen={() => setOpenDrawer(true)}
-        classes={{ paper: classes.drawer }}
+        classes={{
+          paper: classes.drawer,
+        }}
       >
-        <div className={classes.toolbarMargin}></div>
+        <div className={classes.toolbarMargin}> </div>
         <List disablePadding>
           {routes.map((route) => (
             <ListItem
@@ -284,13 +313,11 @@ const Header = () => {
               button
               component={Link}
               to={route.link}
-              classes={{selected: classes.draweItemSelected}}
+              classes={{
+                selected: classes.draweItemSelected,
+              }}
             >
-              <ListItemText
-                className={classes.drawerItem
-                }
-                disableTypography
-              >
+              <ListItemText className={classes.drawerItem} disableTypography>
                 {route.name}
               </ListItemText>
             </ListItem>
@@ -304,13 +331,13 @@ const Header = () => {
             divider
             button
             component={Link}
-            to="/estimate"
-            classes={{root: classes.drawerItemEstimate, selected: classes.draweItemSelected}}
+            to='/estimate'
+            classes={{
+              root: classes.drawerItemEstimate,
+              selected: classes.draweItemSelected,
+            }}
           >
-            <ListItemText
-              className={classes.drawerItem}
-              disableTypography
-            >
+            <ListItemText className={classes.drawerItem} disableTypography>
               Free Esitmate
             </ListItemText>
           </ListItem>
@@ -328,22 +355,22 @@ const Header = () => {
   return (
     <>
       <ElevationScroll>
-        <AppBar position="fixed" className={classes.appbar}>
+        <AppBar position='fixed' className={classes.appbar}>
           <Toolbar disableGutters>
             <Button
               component={Link}
-              to="/"
+              to='/'
               disableRipple
               onClick={handleChange}
               className={classes.logoContainer}
             >
-              <img src={logo} alt="Logo" className={classes.logo} />
+              <img src={logo} alt='Logo' className={classes.logo} />
             </Button>
             {matches ? drawer : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <div className={classes.toolbarMargin}></div>
+      <div className={classes.toolbarMargin}> </div>
     </>
   );
 };
