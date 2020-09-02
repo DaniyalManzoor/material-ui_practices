@@ -4,6 +4,8 @@ import Footer from "./ui/footer";
 import Theme from "./ui/Theme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Routes, Route } from "react-router-dom";
+import LandingPage from "./landingPage";
+
 import Home from "./Home";
 import Services from "./services";
 import Revolution from "./revolution";
@@ -23,7 +25,7 @@ function App() {
         setSelectedIndex={setSelectedIndex}
       />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/customsoftwares" element={<Home />} />
         <Route path="/mobileapps" element={<Home />} />
