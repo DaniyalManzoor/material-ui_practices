@@ -119,17 +119,15 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = (props) => {
   const classes = useStyle();
   const theme = useTheme();
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const matches = useMediaQuery(theme.breakpoints.down("md"));
-
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const { value, setValue, selectedIndex, setSelectedIndex } = props;
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
@@ -213,7 +211,7 @@ const Header = () => {
         value={value}
         onChange={handleChange}
         className={classes.tabContainer}
-        indicatorColor='primary'
+        indicatorColor="primary"
       >
         {routes.map((route, index) => (
           <Tab
@@ -228,11 +226,11 @@ const Header = () => {
           />
         ))}
       </Tabs>
-      <Button variant='contained' color='secondary' className={classes.button}>
+      <Button variant="contained" color="secondary" className={classes.button}>
         Free Estimate
       </Button>
       <Menu
-        id='simple-menu'
+        id="simple-menu"
         anchorEl={anchorEl}
         open={openMenu}
         classes={{
@@ -275,9 +273,9 @@ const Header = () => {
       switch (window.location.pathname) {
         case `${route.link}`:
           if (value !== route.activeIndex) {
-            setValue(route.activeIndex);
+            props.setValue(route.activeIndex);
             if (route.selectedIndex && route.selectedIndex !== selectedIndex) {
-              setSelectedIndex(route.selectedIndex);
+              props.setSelectedIndex(route.selectedIndex);
             }
           }
           break;
@@ -285,7 +283,7 @@ const Header = () => {
           break;
       }
     });
-  }, [value, menuOptions, routes, selectedIndex]);
+  }, [value, menuOptions, routes, selectedIndex, props]);
 
   const drawer = (
     <>
@@ -331,7 +329,7 @@ const Header = () => {
             divider
             button
             component={Link}
-            to='/estimate'
+            to="/estimate"
             classes={{
               root: classes.drawerItemEstimate,
               selected: classes.draweItemSelected,
@@ -355,16 +353,16 @@ const Header = () => {
   return (
     <>
       <ElevationScroll>
-        <AppBar position='fixed' className={classes.appbar}>
+        <AppBar position="fixed" className={classes.appbar}>
           <Toolbar disableGutters>
             <Button
               component={Link}
-              to='/'
+              to="/"
               disableRipple
               onClick={handleChange}
               className={classes.logoContainer}
             >
-              <img src={logo} alt='Logo' className={classes.logo} />
+              <img src={logo} alt="Logo" className={classes.logo} />
             </Button>
             {matches ? drawer : tabs}
           </Toolbar>
