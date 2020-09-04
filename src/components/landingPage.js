@@ -12,6 +12,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import animationData from "../animations/landinganimation/data.js";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppIcon from "../assets/mobileIcon.svg";
+import websitesIcon from "../assets/websiteIcon.svg";
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -215,6 +216,46 @@ const LandingPage = () => {
               className={classes.csIcon}
               src={mobileAppIcon}
               alt="Mobile App Icon"
+            />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        {/* ------- Services -------- */}
+        <Grid
+          container
+          direction="row"
+          justify={matchesSM ? "center" : undefined}
+          className={classes.serviceContainer}
+        >
+          <Grid
+            item
+            style={{
+              marginLeft: matchesSM ? 0 : "5em",
+              textAlign: matchesSM ? "center" : "left",
+            }}
+          >
+            <Typography variant="h4">Website Developement</Typography>
+            <Typography variant="subtitle1" className={classes.subtitle}>
+              Reach More. Discover More. Sell More.
+            </Typography>
+            <Typography variant="subtitle1">
+              Optimized for search Engine, built for speed
+            </Typography>
+            <Button variant="outlined" className={classes.learnButton}>
+              <span style={{ marginRight: 10 }}>Learn More </span>
+              <ButtonArrow
+                width={10}
+                height={10}
+                fill={theme.palette.common.blue}
+              />
+            </Button>
+          </Grid>
+          <Grid item>
+            <img
+              className={classes.csIcon}
+              src={websitesIcon}
+              alt="Website Icon"
             />
           </Grid>
         </Grid>
