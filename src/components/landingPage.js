@@ -11,6 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import animationData from "../animations/landinganimation/data.js";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
+import mobileAppIcon from "../assets/mobileIcon.svg";
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -173,6 +174,46 @@ const LandingPage = () => {
             <img
               className={classes.csIcon}
               src={customSoftwareIcon}
+              alt="Customer Software Icon"
+            />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        {/* ------- Mobile App Developement -------- */}
+        <Grid
+          container
+          direction="row"
+          justify={matchesSM ? "center" : "flex-end"}
+          className={classes.serviceContainer}
+        >
+          <Grid
+            item
+            style={{
+              textAlign: matchesSM ? "center" : "left",
+            }}
+          >
+            <Typography variant="h4">iOS/Android app Development</Typography>
+            <Typography variant="subtitle1" className={classes.subtitle}>
+              Extend Functionality. Extend Access. Increase Engagement.
+            </Typography>
+            <Typography variant="subtitle1">
+              Integrate Your Web Experience or create a standalone app{" "}
+              {matchesSM ? null : <br />} either mobile platform.
+            </Typography>
+            <Button variant="outlined" className={classes.learnButton}>
+              <span style={{ marginRight: 10 }}>Learn More </span>
+              <ButtonArrow
+                width={10}
+                height={10}
+                fill={theme.palette.common.blue}
+              />
+            </Button>
+          </Grid>
+          <Grid item style={{ marginRight: matchesSM ? 0 : "5em" }}>
+            <img
+              className={classes.csIcon}
+              src={mobileAppIcon}
               alt="Customer Software Icon"
             />
           </Grid>
