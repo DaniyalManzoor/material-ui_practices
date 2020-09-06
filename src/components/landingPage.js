@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
-  info: {
+  infoBackground: {
     backgroundImage: `url(${infoImag})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -389,12 +389,12 @@ const LandingPage = (props) => {
           style={{ height: "80em" }}
           alignItems="center"
           direction="row"
+          className={classes.infoBackground}
         >
           <Grid
             item
             container
             style={{
-              position: "absolute",
               textAlign: matchesXS ? "center" : "inherit",
             }}
             direction={matchesXS ? "column" : "row"}
