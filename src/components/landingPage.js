@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import CallToAction from "./ui/callToAction";
 
 import animationData from "../animations/landinganimation/data.js";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
@@ -393,7 +394,7 @@ const LandingPage = () => {
                 </Typography>
                 <Typography variant="subtitle2">
                   Say hello{" "}
-                  <span rol="img" aria-label="wave-hand">
+                  <span role="img" aria-label="wave-hand">
                     👋
                   </span>
                 </Typography>
@@ -416,6 +417,10 @@ const LandingPage = () => {
           </Grid>
           <div className={classes.info} />
         </Grid>
+      </Grid>
+      <Grid item>
+        {/*----- call to action button */}
+        <CallToAction />
       </Grid>
     </Grid>
   );
