@@ -34,7 +34,12 @@ function App() {
             />
           }
         />
-        <Route path="/services" element={<Services />} />
+        <Route
+          path="/services"
+          element={
+            <Services setValue={setValue} setSelectedIndex={setSelectedIndex} />
+          }
+        />
         <Route path="/customsoftwares" element={<Home />} />
         <Route path="/mobileapps" element={<Home />} />
         <Route path="/websites" element={<Home />} />
