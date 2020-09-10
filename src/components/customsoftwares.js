@@ -12,6 +12,8 @@ import forwardArrow from "../assets/forwardArrow.svg";
 import lightblub from "../assets/bulb.svg";
 import cash from "../assets/cash.svg";
 import stopwatch from "../assets/stopwatch.svg";
+import documentsAnimation from "../animations/documentsAnimation/data";
+import scaleAnimation from "../animations/scaleAnimation/data";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -26,12 +28,32 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "10em",
     paddingLeft: "5em",
   },
+  itemContainer: {
+    maxWidth: "40em",
+  },
 }));
 
 const CustomSoftware = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const documentsOption = {
+    loop: true,
+    autoplay: false,
+    animationData: documentsAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const scaleOption = {
+    loop: true,
+    autoplay: false,
+    animationData: scaleAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -160,6 +182,61 @@ const CustomSoftware = (props) => {
           </Grid>
           <Grid item>
             <img src={cash} alt="cash" />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row" justify="space-between">
+        <Grid item container className={classes.itemContainer} lg>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4">Digital Documents & Data</Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco
+                laborisre eu fugiat
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt Ut
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item md>
+            <Lottie
+              options={documentsOption}
+              isStopped={true}
+              style={{ maxHeight: 275, maxWidth: 275, minHeight: 250 }}
+            />
+          </Grid>
+        </Grid>
+        <Grid item container className={classes.itemContainer} lg>
+          <Grid item md>
+            <Lottie
+              options={scaleOption}
+              style={{ maxHeight: 260, maxWidth: 280 }}
+            />
+          </Grid>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4" align="right">
+                Scale
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" align="right" paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
