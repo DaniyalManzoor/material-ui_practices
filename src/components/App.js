@@ -5,9 +5,10 @@ import Theme from "./ui/Theme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./landingPage";
+import Services from "./services";
+import CustomSoftware from "./customsoftwares";
 
 import Home from "./Home";
-import Services from "./services";
 import Revolution from "./revolution";
 import About from "./about";
 import Contact from "./contact";
@@ -40,7 +41,15 @@ function App() {
             <Services setValue={setValue} setSelectedIndex={setSelectedIndex} />
           }
         />
-        <Route path="/customsoftwares" element={<Home />} />
+        <Route
+          path="/customsoftwares"
+          element={
+            <CustomSoftware
+              setValue={setValue}
+              setSelectedIndex={setSelectedIndex}
+            />
+          }
+        />
         <Route path="/mobileapps" element={<Home />} />
         <Route path="/websites" element={<Home />} />
         <Route path="/revolution" element={<Revolution />} />
