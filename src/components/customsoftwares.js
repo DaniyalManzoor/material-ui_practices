@@ -14,6 +14,9 @@ import cash from "../assets/cash.svg";
 import stopwatch from "../assets/stopwatch.svg";
 import documentsAnimation from "../animations/documentsAnimation/data";
 import scaleAnimation from "../animations/scaleAnimation/data";
+import roots from "../assets/root.svg";
+import automationAnimation from "../animations/automationAnimation/data";
+import uxAnimation from "../animations/uxAnimation/data";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -50,6 +53,23 @@ const CustomSoftware = (props) => {
     loop: true,
     autoplay: false,
     animationData: scaleAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  const automationOption = {
+    loop: true,
+    autoplay: false,
+    animationData: automationAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const uxOption = {
+    loop: true,
+    autoplay: false,
+    animationData: uxAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -219,6 +239,7 @@ const CustomSoftware = (props) => {
           <Grid item md>
             <Lottie
               options={scaleOption}
+              isStopped={true}
               style={{ maxHeight: 260, maxWidth: 280 }}
             />
           </Grid>
@@ -235,6 +256,102 @@ const CustomSoftware = (props) => {
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                 in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              </Typography>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        style={{ marginTop: "20em", marginBottom: "20em" }}
+      >
+        <Grid item container direction="column" alignItems="center">
+          <Grid item>
+            <img
+              src={roots}
+              alt="tree with roots extending out"
+              height="450em"
+              width="450em"
+            />
+          </Grid>
+          <Grid item className={classes.itemContainer}>
+            <Typography variant="h4" align="center" gutterBottom>
+              Root-Cause Analysis
+            </Typography>
+            <Typography variant="body1" align="center" paragraph>
+              enim ad m inim veniam, quis nostrud exercitation ullamco laborisre
+              eu fugi 8+-atrcitation ullamco laborisre eu fugiat
+            </Typography>
+            <Typography variant="body1" align="center" paragraph>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laborisre
+              eu fugiat
+            </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container direction="row" justify="space-between">
+        <Grid item container className={classes.itemContainer} lg>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4">Automation</Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco
+                laborisre eu fugiat
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt Ut
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid item md>
+            <Lottie
+              options={automationOption}
+              isStopped={true}
+              style={{ maxHeight: 290, maxWidth: 280 }}
+            />
+          </Grid>
+        </Grid>
+        <Grid item container className={classes.itemContainer} lg>
+          <Grid item md>
+            <Lottie
+              options={uxOption}
+              isStopped={true}
+              style={{ maxHeight: 310, maxWidth: 155 }}
+            />
+          </Grid>
+          <Grid item container direction="column" md>
+            <Grid item>
+              <Typography variant="h4" align="right">
+                User Experience Design
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1" align="right" paragraph>
+                Lorem ipsum dolor sit in voluptate velit esse cillum dolore eu
+                fugiat
+              </Typography>
+
+              <Typography variant="body1" align="right" paragraph>
+                Lorem ipsum dolor sit in voluptate velit esse cillum dolore eu
+                fugiat Lorem ipsum dolor sit in voluptate velit esse cillum
+                dolore eu fugiat Lorem ipsum dolor sit in voluptate
+              </Typography>
+
+              <Typography variant="body1" align="right" paragraph>
+                Lorem ipsum dolor sit in voluptate velit esse cillum dolore eu
+                fugiat Lorem ipsum dolor
               </Typography>
             </Grid>
           </Grid>
