@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import LandingPage from "./landingPage";
 import Services from "./services";
 import CustomSoftware from "./customsoftwares";
+import MobileApp from "./mobileApp";
 
 import Home from "./Home";
 import Revolution from "./revolution";
@@ -50,7 +51,15 @@ function App() {
             />
           }
         />
-        <Route path="/mobileapps" element={<Home />} />
+        <Route
+          path="/mobileapps"
+          element={
+            <MobileApp
+              selectedIndex={selectedIndex}
+              setSelectedIndex={setSelectedIndex}
+            />
+          }
+        />
         <Route path="/websites" element={<Home />} />
         <Route path="/revolution" element={<Revolution />} />
         <Route path="/about" element={<About />} />
