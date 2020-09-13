@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Hidden from "@material-ui/core/Hidden";
 
 import backArrow from "../assets/backArrow.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
@@ -25,11 +26,13 @@ const useStyles = makeStyles((theme) => ({
   arrowContainer: {
     marginTop: "0.5em",
   },
-  mainContainer: {
-    paddingTop: "2em",
-    paddingRight: "5em",
-    paddingBottom: "10em",
+  rowContainer: {
     paddingLeft: "5em",
+    paddingRight: "5em",
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "1.5em",
+      paddingRight: "1.5em",
+    },
   },
   itemContainer: {
     maxWidth: "40em",
@@ -39,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
 const CustomSoftware = (props) => {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const documentsOption = {
     loop: true,
@@ -76,38 +80,57 @@ const CustomSoftware = (props) => {
   };
 
   return (
-    <Grid container direction="column" className={classes.mainContainer}>
-      <Grid item container direction="row">
-        <Grid
-          item
-          className={classes.arrowContainer}
-          style={{ marginLeft: "-3.5em", marginRight: "1em" }}
-          component={Link}
-          to="/services"
-        >
-          <IconButton
-            style={{ backgroundColor: "transparent" }}
-            onClick={() => {
-              props.setSelectedIndex(0);
-              props.setValue(1);
-            }}
+    <Grid container direction="column" className={classes.rowContainer}>
+      <Grid
+        item
+        container
+        direction="row"
+        justify={matchesMD ? "center" : undefined}
+        className={classes.rowContainer}
+        style={{ marginTop: matchesXS ? "1em" : "2em" }}
+      >
+        <Hidden mdDown>
+          <Grid
+            item
+            className={classes.arrowContainer}
+            style={{ marginLeft: "-3.5em", marginRight: "1em" }}
           >
-            <img src={backArrow} alt="back to services page" />
-          </IconButton>
-        </Grid>
+            <IconButton
+              style={{ backgroundColor: "transparent" }}
+              component={Link}
+              to="/services"
+              onClick={() => {
+                props.setSelectedIndex(0);
+                props.setValue(1);
+              }}
+            >
+              <img src={backArrow} alt="Back to services page" />
+            </IconButton>
+          </Grid>
+        </Hidden>
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
-            <Typography variant="h2">Custom Software Development</Typography>
+            <Typography align={matchesMD ? "center" : undefined} variant="h2">
+              Custom Software Development
+            </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -121,35 +144,42 @@ const CustomSoftware = (props) => {
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="body1"
+              paragraph
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
             </Typography>
           </Grid>
         </Grid>
-        <Grid
-          item
-          component={Link}
-          to="/mobileapps"
-          className={classes.arrowContainer}
-        >
-          <IconButton
-            style={{ backgroundColor: "transparent" }}
-            onClick={() => {
-              props.setSelectedIndex(2);
-              props.setValue(1);
-            }}
-          >
-            <img src={forwardArrow} alt="forward to IOS/Android App Page" />
-          </IconButton>
-        </Grid>
+        <Hidden mdDown>
+          <Grid item className={classes.arrowContainer}>
+            <IconButton
+              style={{ backgroundColor: "transparent" }}
+              component={Link}
+              to="/mobileapps"
+              onClick={() => {
+                props.setSelectedIndex(2);
+                props.setValue(1);
+              }}
+            >
+              <img src={forwardArrow} alt="forward to IOS/Android App Page" />
+            </IconButton>
+          </Grid>
+        </Hidden>
       </Grid>
       <Grid
         item
